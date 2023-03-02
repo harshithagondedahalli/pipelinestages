@@ -1,6 +1,13 @@
 pipeline {
     agent any
     stages {
+        stage('deploy') {
+        
+            steps {
+           sh "echo harsh"            
+ 
+                  }
+         }
         stage('parallel') {
             parallel{
 
@@ -42,6 +49,13 @@ pipeline {
                 }
              }
         }
+     }
+     stage('BUILD') {
+        
+        steps {
+       sh "echo harsh"            
+
+              }
      }
     }
 }
