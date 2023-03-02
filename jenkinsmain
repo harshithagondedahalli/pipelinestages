@@ -1,6 +1,6 @@
 pipeline{
     agent any
-    stages
+    stages {
     stage('BUILD') {
         when{
             branch 'main'
@@ -10,6 +10,6 @@ pipeline{
         
             }
         }
+    }
 
     }
-}
