@@ -1,21 +1,23 @@
-pipeline{
+pipeline {
     agent any
     stages {
-    stage('BUILD') {
         stage('parallel') {
-                parallel{
-        steps {
-            sh "echo harsh"            
-        
-            }
-        }
+            parallel{
 
-        stage ( 'TEST' ) {
-            steps {
-             sh '''
-                echo "$$"
-                '''
+              stage('BUILD') {
+        
+                   steps {
+                  sh "echo harsh"            
+        
+                         }
                 }
+
+                   stage ( 'TEST' ) {
+                   steps {
+                      sh '''
+                      echo "$$"
+                      '''
+                    }
              }
               stage ( 'pipeline-test' ) {
             steps {
