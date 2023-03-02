@@ -10,6 +10,16 @@ pipeline{
         
             }
         }
+
+        stage('BUILD') {
+            when{
+                branch 'test'
+            }
+            steps {
+                sh "echo harsh"            
+            
+                }
+            }
     }
 
     }
