@@ -20,7 +20,7 @@ pipeline {
                 print "EXECUTING: Stage B STAGE_A_RESULT: ${stage_result}"
             }
         }
-        stage('B'){
+        stage('C'){
             when {
                 expression{ stage_result == false}
             }
