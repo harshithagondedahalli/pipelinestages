@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+    parameters {
+  choice choices: ['stage1', 'stage2', 'stage3'], description: 'enter the name to execute ?', name: 'stagename'
+               }
+               stages{
+                stage('stage1') {
+                    when { 
+                        expression{ params.stagename == 'stage1'}
+                    }
+                    steps {
+                        print "DEBUG: parameter stagename = ${params.stagename}"
+                    }
+                    
+                    }
+                    stage('stage2') {
+                        when { 
+                        expression{ params.stagename == 'stage2'}
+                    }
+                    steps {
+                        print "DEBUG: parameter stagename = ${params.stagename}"
+                    }
+
+                    }
+                }
+ }
+
