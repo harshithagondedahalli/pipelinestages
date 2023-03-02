@@ -2,18 +2,18 @@ pipeline {
     agent any
 
     parameters {
-  string defaultValue: 'main', name: 'branch', trim: true
+  string defaultValue: 'main', name: 'test', trim: true
 } 
   
   environment {
-  harsh = "${branch}"
+  harsh = "${test}"
               }
  
     stages {
         stage('deploy') {
         
             steps {
-           sh "echo harsh"            
+           sh "echo $harsh"            
  
                   }
          }
@@ -26,17 +26,17 @@ pipeline {
                }
         
                    steps {
-                  sh "echo harsh"            
+                  sh "echo $harsh"            
         
                          }
                 }
-                
-        stage('BUILD-test') {
-        steps {
-       sh "echo harsh"            
 
-              }
-     }
-    }
-}
+                           stage('BUILD-test') {
+                           steps {
+                           sh "echo $harsh"            
+
+                                 }
+                                                }
+                  }
+         }
 }
