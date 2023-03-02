@@ -2,11 +2,11 @@ pipeline {
   agent any
   
   parameters {
-  string defaultValue: 'abc', name: 'xyz', trim: true
+  string defaultValue: 'masternode', name: 'parametername', trim: true
 } 
   
   environment {
-  harsh = "${xyz}"
+  harsh = "${parametername}"
               }
  
 
