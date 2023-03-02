@@ -1,7 +1,7 @@
 ipeline {
     agent any
     parameters {
-  choice choices: ['main', 'brnach'], description: 'enter the name to execute ?', name: 'stagename'
+  choice choices: ['main', 'branch'], description: 'enter the name to execute ?', name: 'stagename'
                }
                stages{
                 stage('main') {
@@ -15,7 +15,7 @@ ipeline {
                     }
                     stage('branch') {
                         when { 
-                        expression{ params.stagename == 'brnach'}
+                        expression{ params.stagename == 'branch'}
                     }
                     steps {
                         print "DEBUG: parameter stagename = ${params.stagename}"
