@@ -1,0 +1,27 @@
+ipeline {
+    agent any
+    parameters {
+  choice choices: ['main', 'brnach'], description: 'enter the name to execute ?', name: 'stagename'
+               }
+               stages{
+                stage('main') {
+                    when { 
+                        expression{ params.stagename == 'stage1'}
+                    }
+                    steps {
+                        print "DEBUG: parameter stagename = ${params.stagename}"
+                    }
+                    
+                    }
+                    stage('branch') {
+                        when { 
+                        expression{ params.stagename == 'brnach'}
+                    }
+                    steps {
+                        print "DEBUG: parameter stagename = ${params.stagename}"
+                    }
+
+                    }
+                
+                }
+ }
