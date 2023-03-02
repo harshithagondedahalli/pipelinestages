@@ -5,10 +5,8 @@ pipeline{
         when{
             branch 'main'
         }
-        step{
-            sh '''
-            echo "harsh"
-             '''
+        steps {
+            sh "echo harsh"            
         
             }
         }
