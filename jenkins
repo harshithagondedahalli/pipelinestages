@@ -13,17 +13,15 @@ pipeline {
 
     stages {
     stage ( 'BUILD' ) {
-//            agent { label 'masterkeynode' }
+
                 steps {
                  sh '''       
-//                   cd /home/ec2-user/workspace/agentjobpipe
-  //                  make ABC.exe
-                    echo "$harsh"
+                    echo "harsh"
                     '''
                     }
                  }
                stage ( 'TEST' ) {
-             //     agent { label 'node1-cproject' }
+            
                 steps {
                  sh '''
                     echo "$$"
@@ -31,7 +29,7 @@ pipeline {
                     }
                  }
                   stage ( 'pipeline-test' ) {
-           //          agent { label 'masterkeynode' }
+          
                 steps {
                  sh '''
                     echo "$!"
@@ -40,7 +38,7 @@ pipeline {
                  }
              
              stage ( 'pipeline-deploy' ) {
-               //  agent { label 'node1-cproject' }
+              
                 steps {
                  sh '''
                     pwd
@@ -48,7 +46,7 @@ pipeline {
                     }
                  }
                   stage ( 'pipeline-build' ) {
-                 //    agent { label 'node1-cproject' }
+               
                 steps {
                  sh '''
                     echo "$?"
