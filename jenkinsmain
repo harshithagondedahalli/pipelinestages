@@ -2,24 +2,44 @@ pipeline{
     agent any
     stages {
     stage('BUILD') {
-        when{
-            branch 'master'
-        }
+        stage('parallel') {
+                parallel{
         steps {
             sh "echo harsh"            
         
             }
         }
 
-        stage('Test') {
-            when{
-                branch 'test'
-            }
+        stage ( 'TEST' ) {
             steps {
-                sh "echo harsh"            
-            
+             sh '''
+                echo "$$"
+                '''
                 }
-            }
+             }
+              stage ( 'pipeline-test' ) {
+            steps {
+             sh '''
+                echo "$!"
+                '''
+                }
+             }
+         
+         stage ( 'pipeline-deploy' ) {
+            steps {
+             sh '''
+                pwd
+                '''
+                }
+             }
+              stage ( 'pipeline-build' ) {
+            steps {
+             sh '''
+                echo "$?"
+                '''
+                }
+             }
+        }
+     }
     }
-
-    }
+}
