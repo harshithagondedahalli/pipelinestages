@@ -1,0 +1,33 @@
+def boolean stage_result = false
+pipeline {
+    agent any
+    stages{
+        stage('A'){
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    print "stage A"
+                    sh "exit 1"
+                    script { stage_result=true }
+                }
+            }
+
+        }
+        stage('B'){
+            when {
+                expression{ stage_result == true}
+            }
+            steps{
+                print "EXECUTING: Stage B STAGE_A_RESULT: ${stage_result}"
+            }
+        }
+        stage('B'){
+            when {
+                expression{ stage_result == false}
+            }
+            steps{
+                print "EXECUTING: Stage c STAGE_A_RESULT: ${stage_result}"
+            }
+        }
+
+    }
+}
