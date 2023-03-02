@@ -1,0 +1,17 @@
+pipeline{
+    agent any
+    stages
+    stage('BUILD') {
+        when{
+            branch 'main'
+        }
+        step{
+            sh '''
+            echo "harsh"
+             '''
+        
+            }
+        }
+
+    }
+}
