@@ -6,7 +6,7 @@ pipeline {
                stages{
                 stage('stage1') {
                     when { 
-                        expression{ params.stagename == 'stage1'}
+                        expression{ stagename == 'stage1'}
                     }
                     steps {
                         print "DEBUG: parameter stagename = ${params.stagename}"
@@ -15,7 +15,7 @@ pipeline {
                     }
                     stage('stage2') {
                         when { 
-                        expression{ params.stagename == 'stage2'}
+                        expression{ stagename == 'stage2'}
                     }
                     steps {
                         print "DEBUG: parameter stagename = ${params.stagename}"
