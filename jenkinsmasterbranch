@@ -6,7 +6,7 @@ ipeline {
                stages{
                 stage('main') {
                     when { 
-                        expression{ params.stagename == 'stage1'}
+                        expression{ params.stagename == 'main'}
                     }
                     steps {
                         print "DEBUG: parameter stagename = ${params.stagename}"
