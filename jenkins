@@ -1,15 +1,60 @@
 pipeline {
-agent any
+  agent any
+  
+   parameters {
+  string defaultValue: 'main', name: 'supergirl', trim: true
+} 
+  
   environment {
   harsh = "supergirl"
               }
-              stages{
-                stage ('Buid'){
-                  steps{
-                        sh '''
-                         echo "$harsh"
-                          '''
-                              }
-                       }
+
+
+
+    stages {
+    stage ( 'BUILD' ) {
+//            agent { label 'masterkeynode' }
+                steps {
+                 sh '''       
+//                    cd /home/ec2-user/workspace/agentjobpipe
+  //                  make ABC.exe
+                    echo "$harsh"
+                    '''
                     }
+                 }
+               stage ( 'TEST' ) {
+             //     agent { label 'node1-cproject' }
+                steps {
+                 sh '''
+                    echo "$$"
+                    '''
+                    }
+                 }
+                  stage ( 'pipeline-test' ) {
+           //          agent { label 'masterkeynode' }
+                steps {
+                 sh '''
+                    echo "$!"
+                    '''
+                    }
+                 }
+             
+             stage ( 'pipeline-deploy' ) {
+               //  agent { label 'node1-cproject' }
+                steps {
+                 sh '''
+                    pwd
+                    '''
+                    }
+                 }
+                  stage ( 'pipeline-build' ) {
+                 //    agent { label 'node1-cproject' }
+                steps {
+                 sh '''
+                    echo "$?"
+                    echo "hi"
+                    '''
+                    }
+                 }
             }
+         }
