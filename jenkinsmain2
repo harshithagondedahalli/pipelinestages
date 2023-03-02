@@ -17,6 +17,7 @@ pipeline {
  
                   }
          }
+    }
         stage('parallel') {
             parallel{
 
@@ -79,5 +80,4 @@ pipeline {
      }
     }
 }
-    }
 }
