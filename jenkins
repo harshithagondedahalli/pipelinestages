@@ -1,16 +1,15 @@
 pipeline {
 agent any
-environment {
+  environment {
   harsh = "supergirl"
               }
-stages{
-stage ('Buid'){
-steps{
-sh '''
-echo "$0"
-echo "$harsh"
-'''
-}
-}
-}
-}
+              stages{
+                stage ('Buid'){
+                  steps{
+                        sh '''
+                         echo "$harsh"
+                          '''
+                              }
+                       }
+                    }
+            }
