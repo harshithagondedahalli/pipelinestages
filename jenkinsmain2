@@ -19,48 +19,6 @@ pipeline {
          }
     }
         stage('parallel') {
-            parallel{
-
-              stage('BUILD') {
-        
-                   steps {
-                  sh "echo harsh"            
-        
-                         }
-                }
-
-                   stage ( 'TEST' ) {
-                   steps {
-                      sh '''
-                      echo "$$"
-                      '''
-                    }
-             }
-              stage ( 'pipeline-test' ) {
-            steps {
-             sh '''
-                echo "$!"
-                '''
-                }
-             }
-         
-         stage ( 'pipeline-deploy' ) {
-            steps {
-             sh '''
-                pwd
-                '''
-                }
-             }
-              stage ( 'pipeline-build' ) {
-            steps {
-             sh '''
-                echo "$?"
-                '''
-                }
-             }
-        }
-     }
-     stage('parallel') {
                parallel{
                stage('BUILD') {
                when {
@@ -72,6 +30,7 @@ pipeline {
         
                          }
                 }
+                
         stage('BUILD-test') {
         steps {
        sh "echo harsh"            
