@@ -28,12 +28,18 @@ pipeline {
                          }
                 }
 
-                           stage('BUILD-test') {
+                           stage('BUILD-deploy') {
                            steps {
                            sh "echo $harsh"            
 
                                  }
                                                 }
+                            stage('BUILD-test') {
+                           steps {
+                           sh "echo $harsh"            
+
+                                 }
+                         }
                   }
          }
 }
