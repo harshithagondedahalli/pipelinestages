@@ -1,6 +1,5 @@
 pipeline {
     agent any
-
     parameters {
   string defaultValue: 'main', name: 'test', trim: true
 } 
@@ -9,23 +8,21 @@ pipeline {
   harsh = "${test}"
               }
  
-    stages {
-        stage('deploy') {
+               stages {
+                        stage('deploy') {
         
-            steps {
-           sh "echo $harsh"            
+                        steps {
+                                 sh "echo $harsh"            
  
-                  }
-         }
-    }
-        stage('parallel') {
+                               }
+                        }
+                          stage ('maintest') {
                parallel{
                stage('BUILD') {
                when {
                   branch 'main'
-               }
-        
-                   steps {
+                     }
+                  steps {
                   sh "echo $harsh"            
         
                          }
@@ -39,4 +36,5 @@ pipeline {
                                                 }
                   }
          }
+}
 }
