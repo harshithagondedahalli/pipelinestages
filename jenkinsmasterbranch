@@ -1,4 +1,4 @@
-ipeline {
+pipeline {
     agent any
     parameters {
   choice choices: ['main', 'branch'], description: 'enter the name to execute ?', name: 'stagename'
