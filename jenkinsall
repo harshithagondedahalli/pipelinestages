@@ -1,7 +1,7 @@
 pipeline{
     agent none
 parameters {
-  choice choices: ['BUILD', 'Test', 'Deploy', 'test', 'DEPLOY'], name: 'enter the stage ?? '
+  choice choices: ['BUILD', 'Test', 'Deploy', 'test', 'DEPLOY'], name: 'STAGE_NAME'
 }
 
     stages {
