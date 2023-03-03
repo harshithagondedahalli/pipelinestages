@@ -1,7 +1,7 @@
 pipeline{
     agent none
-    stage{
-                stages ('BUILD') {
+    stages {
+                stage ('BUILD') {
             agent { label 'masterkeynode' }
 
             steps{
@@ -9,15 +9,15 @@ pipeline{
             }
         }
         
-        stages ('Test') {
+        stage ('Test') {
             parallel{
-                stages ('Deploy'){
+                stage ('Deploy'){
                 agent { label 'masterkeynode' }
                    steps{
                     sh "pwd"
                 }
                 }
-                stages ('test'){
+                stage ('test'){
                 agent { label 'masterkeynode' }
 
                     steps{
@@ -27,7 +27,7 @@ pipeline{
             }
         }
         
-        stages{
+        
         stage ('DEPLOY') {
             agent { label 'node-cproject' }
 
@@ -36,6 +36,6 @@ pipeline{
             }
         }
 
-        }
+        
     }
  }
