@@ -17,7 +17,7 @@ parameters {
         }
         
         stage ('Test') {
-                       agent { label 'masterkeynode' }
+                    
                       when { 
                 expression{ params.STAGE_NAME == "Test" }
             }  
@@ -25,15 +25,14 @@ parameters {
 
             parallel{
                 stage ('Deploy'){
-                     
-                //agent { label 'masterkeynode' }
+                     agent { label 'masterkeynode' }
                    steps{
                     sh "pwd"
                 }
                 }
                 stage ('test'){
              
-                //agent { label 'masterkeynode' }
+                agent { label 'masterkeynode' }
 
                     steps{
                         sh "echo hi"
