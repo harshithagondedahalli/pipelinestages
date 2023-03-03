@@ -17,11 +17,11 @@ parameters {
         }
         
         stage ('Test') {
-
+                       agent { label 'masterkeynode' }
                       when { 
                 expression{ params.STAGE_NAME == "Test" }
             }  
-                              agent { label 'masterkeynode' }
+                           
 
             parallel{
                 stage ('Deploy'){
