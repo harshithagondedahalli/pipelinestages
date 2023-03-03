@@ -18,6 +18,8 @@ pipeline{
                 }
                 }
                 stage('Test'){
+                agent { label 'masterkeynode' }
+
                     steps{
                         sh "echo hi"
                     }
