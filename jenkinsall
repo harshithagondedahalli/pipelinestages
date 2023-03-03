@@ -1,5 +1,9 @@
 pipeline{
     agent none
+parameters {
+  choice choices: ['BUILD', 'Test', 'Deploy', 'test', 'DEPLOY'], name: 'enter the stage ?? '
+}
+
     stages {
                 stage ('BUILD') {
             agent { label 'masterkeynode' }
