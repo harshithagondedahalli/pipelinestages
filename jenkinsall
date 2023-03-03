@@ -1,7 +1,7 @@
 pipeline{
     agent none
 parameters {
-  choice choices: ['BUILD', 'Test', 'Deploy', 'test', 'DEPLOY'], name: 'STAGE_NAME'
+  choice choices: ['BUILD', 'Deploy', 'test', 'DEPLOY'], name: 'STAGE_NAME'
 }
 
     stages {
@@ -17,23 +17,21 @@ parameters {
         }
         
         stage ('Test') {
-            when { 
+
+                      when { 
                 expression{ params.STAGE_NAME == "Test" }
-            }    
+            }  
+              
             parallel{
                 stage ('Deploy'){
-                     when { 
-                expression{ params.STAGE_NAME == "Deploy" }
-            }    
+                     
                 agent { label 'masterkeynode' }
                    steps{
                     sh "pwd"
                 }
                 }
                 stage ('test'){
-                     when { 
-                expression{ params.STAGE_NAME == "test" }
-            }    
+             
                 agent { label 'masterkeynode' }
 
                     steps{
