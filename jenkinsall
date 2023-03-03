@@ -17,6 +17,9 @@ parameters {
         }
         
         stage ('Test') {
+            when { 
+                expression{ params.STAGE_NAME == "Test" }
+            }    
             parallel{
                 stage ('Deploy'){
                      when { 
