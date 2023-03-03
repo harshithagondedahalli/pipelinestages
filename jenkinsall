@@ -17,7 +17,7 @@ pipeline{
                     sh "pwd"
                 }
                 }
-                stage('Test'){
+                stage('test'){
                 agent { label 'masterkeynode' }
 
                     steps{
@@ -28,7 +28,7 @@ pipeline{
 
         }
         stages{
-        stage ('Deploy') {
+        stage ('DEPLOY') {
             agent { label 'node-cproject' }
 
             steps{
