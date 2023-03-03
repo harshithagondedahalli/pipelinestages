@@ -1,0 +1,25 @@
+pipeline{
+    agent none
+    stages{
+        stage ('BUILD') {
+            steps{
+                sh "echo Hi "
+            }
+        }
+        stage ('Test') {
+            parallel{
+                stage('Deploy'){
+                steps{
+                    sh "pwd"
+                }
+                }
+                stage('Test'){
+                    steps{
+                        sh "$?"
+                    }
+                }
+            }
+
+        }
+    }
+}
