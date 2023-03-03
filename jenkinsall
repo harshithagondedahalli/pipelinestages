@@ -12,7 +12,7 @@ pipeline{
         stage ('Test') {
             parallel{
                 stage('Deploy'){
-                agent { label 'node1-cproject' }
+                agent { label 'masterkeynode' }
                    steps{
                     sh "pwd"
                 }
