@@ -6,6 +6,9 @@ parameters {
 
     stages {
                 stage ('BUILD') {
+                     when { 
+                expression{ params.STAGE_NAME == "BUILD" }
+            }    
             agent { label 'masterkeynode' }
 
             steps{
@@ -16,12 +19,18 @@ parameters {
         stage ('Test') {
             parallel{
                 stage ('Deploy'){
+                     when { 
+                expression{ params.STAGE_NAME == "Deploy" }
+            }    
                 agent { label 'masterkeynode' }
                    steps{
                     sh "pwd"
                 }
                 }
                 stage ('test'){
+                     when { 
+                expression{ params.STAGE_NAME == "test" }
+            }    
                 agent { label 'masterkeynode' }
 
                     steps{
@@ -34,6 +43,9 @@ parameters {
         
         stage ('DEPLOY') {
             agent { label 'node1-cproject' }
+             when { 
+                expression{ params.STAGE_NAME == "DEPLOY" }
+            }    
 
             steps{
                 sh "echo Hi "
