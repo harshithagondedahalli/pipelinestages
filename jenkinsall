@@ -29,7 +29,7 @@ pipeline{
         
         
         stage ('DEPLOY') {
-            agent { label 'node-cproject' }
+            agent { label 'node1-cproject' }
 
             steps{
                 sh "echo Hi "
